@@ -12,10 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label "Nome" %><br>
+    <%= f.text_field :name, class:"form-control"  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <br>
+    <div class="row">
+      <%= f.submit "Salvar", class:"btn btn-success btn btn-ms" %>
+      <%= link_to 'Voltar', users_path,class:"btn btn-info btn btn-ms" %>
+    </div>
   </div>
 <% end %>
