@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :posts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+         def set_id_name
+           "#{id}- #{name}"
+         end
 end

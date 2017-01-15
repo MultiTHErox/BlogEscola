@@ -29,11 +29,12 @@
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.select :user_id, @users, {prompt: "Selecione um autor"} %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+    <%= f.select :category_id, @categories, {prompt: "Selecione uma categoria"} %>
+    <%#= f.select :category_id, @categories.collect {|category| [category.name, category.id]} %>
   </div>
   <div class="actions">
     <%= f.submit "Salvar", class:"btn btn-success btn btn-sm" %>

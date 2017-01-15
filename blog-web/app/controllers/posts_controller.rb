@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  before_action :set_users
+  before_action :set_categories
   # GET /posts
   # GET /posts.json
   def index
@@ -67,7 +68,12 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
-
+    def set_users
+      @users = User.all.collect {|user| [user.set_id_name, user.id]}
+    end
+    def set_categories
+      @categories = Category.all.collect {|category| [category.name, category.id]}
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :subtitle, :image_post, :body_text, :user_id, :category_id)
