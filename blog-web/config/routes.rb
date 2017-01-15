@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'home', to: "home#index"
+  get 'post_details/:id', to: "home#post_detail", as: :post_detail
+
   devise_for :users
   root 'posts#index'
 
@@ -7,6 +10,10 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   resources :categories
+
+  namespace :api do
+    resources :posts
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

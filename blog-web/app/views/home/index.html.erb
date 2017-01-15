@@ -1,0 +1,19 @@
+<h1>Blog Escola</h1>
+
+<h3>Ultimas Postagens</h3>
+
+<% @posts.each do |post| %>
+<div class="jumbotron">
+  <div class="card" >
+    <%= image_tag(post.image_post,size: "1025x200", class:"card-img-top")%>
+    <div class="card-block">
+      <h4 class="card-title"><%=post.title%></h4>
+      <p class="card-text"><%=post.subtitle%></p>
+      <%= link_to "Ver Postagem",post_detail_path(post), class:"btn btn-primary btn-sm"%>
+    </div>
+  </div>
+
+</div>
+<%end%>
+
+<%= will_paginate @posts,renderer: BootstrapPagination::Rails %>
